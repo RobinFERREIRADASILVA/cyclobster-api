@@ -2,6 +2,7 @@ const express = require('express');
 const database = require('./config/database');
 const app = express();
 const Picture = require('./Models/photos');
+const Category = require('./Models/category');
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -25,9 +26,16 @@ app.get('/pictures', (req,res) => {
 
     });
 
-    console.log(allPictures);
+});
 
-})
+app.get('/categories', (req,res) => {
+
+    Category.findAll().then((categories) => {
+    res.send(categories)
+
+    });
+
+});
 
 app.listen(8000, () => {
     console.log("Serveur à l'écoute")

@@ -11,13 +11,15 @@ const Category = sequelize.define('category', {
       type: DataTypes.NUMBER,
       allowNull: false
     },
-    Category: {
+    picture: {
         type: DataTypes.STRING,
         allowNull: false
     },
 }, {
         createdAt: false,
         updatedAt: false,
+        tableName: 'category'
+
 
     });
 
